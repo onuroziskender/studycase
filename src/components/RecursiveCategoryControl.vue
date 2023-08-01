@@ -1,5 +1,5 @@
 <script setup>
-import {reactive, defineProps, defineEmits, onMounted, ref} from 'vue';
+import {onMounted, ref} from 'vue';
 import CategoryEditor from './CategoryEditor.vue';
 import axios from "axios";
 

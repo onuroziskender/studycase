@@ -1,7 +1,6 @@
 <script setup>
-import {ref, onMounted, defineProps,defineEmits, reactive, computed} from "vue";
+import {ref, onMounted, defineProps,defineEmits, reactive} from "vue";
 import axios from "axios";
-import { v4 as uuidv4 } from 'uuid';
 
 const emit = defineEmits(['onSelectCategory','onDeleteCategory'])
 const props = defineProps({
@@ -13,7 +12,7 @@ const props = defineProps({
 
 let selectedSubCategory = reactive({});
 const subCategories = ref([]);
-const selectSubCategory = (item, index) => {
+const selectSubCategory = (item) => {
   console.log("Previous Selected:" + selectedSubCategory.name)
   if (selectedSubCategory) {
     selectedSubCategory.selected = false;
@@ -49,10 +48,10 @@ const addCategory = async () => {
 
     const categoryName = prompt('Enter the new category name:');
     if (categoryName && categoryName.trim() !== '') {
-      const newCategory = {
-        name: 'New Category',
-        parent_id: 'category_id',
-      }
+      // const newCategory = {
+      //   name: 'New Category',
+      //   parent_id: 'category_id',
+      // }
      await axios.post(`http://localhost:3000/api/addCategories/${props.category_id}/${categoryName.trim()}`, {} )
      await updateSubCategories();
     }
@@ -70,10 +69,10 @@ const editCategory = async () => {
     if (newName && newName.trim() !== '') {
       selectedSubCategory.name = newName.trim()
 
-      const updatedName = {
-        id: selectedSubCategory.id,
-        name: newName.trim()
-      }
+      // const updatedName = {
+      //   id: selectedSubCategory.id,
+      //   name: newName.trim()
+      // }
       await axios.post(`http://localhost:3000/api/updateCategories/${selectedSubCategory.id}/${newName.trim()}`,
           {})
      // selectedSubCategory.value.name = newName.trim();

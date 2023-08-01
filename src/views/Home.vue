@@ -1,11 +1,8 @@
 
 <script setup>
-import {onMounted, ref} from "vue";
+
 import RecursiveCategoryControl from "../components/RecursiveCategoryControl.vue";
 let auth = false;
-import axios from "axios";
-import CategoryEditor from "../components/CategoryEditor.vue";
-import { v4 as uuidv4 } from 'uuid';
 
 </script>
 

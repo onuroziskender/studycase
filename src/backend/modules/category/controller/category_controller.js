@@ -1,4 +1,4 @@
-const Fastify = require('fastify');
+
 const { v4: uuidv4 } = require('uuid');
 const {client} = require('../../../helpers/database.js');
 //const client = require('/src/backend/helpers/database.js');
