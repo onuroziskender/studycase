@@ -27,7 +27,7 @@ const client = new Client({
     database: "studycase"
 })
 
-async function connector(fastify, options) {
+async function connector(fastify) {
     try {
         await client.connect()
         console.log("db connected succesfully")
